@@ -1,0 +1,70 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  background: black;
+}
+
+.container {
+  width: 600px;
+  margin: auto;
+
+}
+
+h1 {
+  text-align: center;
+  color: rgb(216, 205, 205);
+  /* background-color: lightcoral; */
+  padding: 70px 0 0px 0;
+}
+
+h2 {
+  color: rgb(216, 205, 205);
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+.teclado {
+  position: relative;
+}
+
+.primeraFila {
+  display: flex;
+  /* background-color: lightcoral; */
+  gap: 7px;
+  position: absolute;
+  margin-left: 118px;
+  margin-top: 74px;
+}
+
+.segundaFila {
+  display: flex;
+  /* background-color: lightcoral; */
+  gap: 7px;
+  position: absolute;
+  margin-left: 126px;
+  margin-top: 105px;
+}
+
+.terceraFila {
+  display: flex;
+  /* background-color: lightcoral; */
+  gap: 7px;
+  position: absolute;
+  margin-left: 143px;
+  margin-top: 136px;
+}
+
+.teclas {
+  width: 25px;
+  height: 25px;
+  background-color: lightslategray;
+}

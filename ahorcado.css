@@ -4,24 +4,22 @@
 }
 
 body {
-  background: black;
+  background: rgb(255, 255, 255);
+  width: 500px;
 }
 
 .container {
-  width: 600px;
-  margin: auto;
-
+  width: 1200px;
 }
 
 h1 {
   text-align: center;
-  color: rgb(216, 205, 205);
-  /* background-color: lightcoral; */
-  padding: 70px 0 0px 0;
+  color: black;
+  padding-top: 70px;
 }
 
 h2 {
-  color: rgb(216, 205, 205);
+  color: black;
   text-align: center;
   padding-top: 40px;
   padding-bottom: 60px;
@@ -41,7 +39,7 @@ img {
   /* background-color: lightcoral; */
   gap: 16px;
   position: absolute;
-  margin-left: 112px;
+  margin-left: 205px;
   margin-top: 179px;
 }
 
@@ -50,7 +48,7 @@ img {
   /* background-color: lightcoral; */
   gap: 16px;
   position: absolute;
-  margin-left: 128px;
+  margin-left: 218px;
   margin-top: 220px;
 }
 
@@ -59,7 +57,7 @@ img {
   /* background-color: lightcoral; */
   gap: 16px;
   position: absolute;
-  margin-left: 147px;
+  margin-left: 238px;
   margin-top: 260px;
 }
 

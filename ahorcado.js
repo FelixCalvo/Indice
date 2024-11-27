@@ -30,15 +30,34 @@ document.querySelectorAll('.teclas').forEach(tecla => {
     // Comprobar si la letra está en la palabra a adivinar
     if (palabraAdivinar.includes(letra)) {
       console.log("La letra está en la palabra");
+      const span = document.querySelector("#spanid_" + palabraAdivinar.indexOf(letra));
+      span.textContent = letra; // Asignar la letra al contenido del span
     } else {
       fotoAhorcado++;
       document.querySelector('.ahorcado').src = `img/ahorcado_${fotoAhorcado}.jpg`;
+      if(fotoAhorcado === 6){
+        alert('Has perdido');
+        location.reload();
+      }
     }
-    const span = document.querySelector("spanid_" + letra);
-    console.log(span);
-    //  span.textContent = cadena[i]; // Asignar la letra al contenido del span
+    
+    //  
   };
 });
+
+// const texto = "programacion"; guardar en aray todas las coincidencias de una letra
+// const letra = "o";
+
+// let posiciones = [];
+// let posicion = texto.indexOf(letra);
+
+// while (posicion !== -1) {
+//   posiciones.push(posicion);
+//   posicion = texto.indexOf(letra, posicion + 1);
+// }
+
+// console.log(`La letra "${letra}" aparece en las posiciones: ${posiciones}`);
+
 
 
 // nombre.indexOf("a")); // 1 Si la letra no estuviese presente, devolvería -1
@@ -56,7 +75,10 @@ function generarSpansPorLetras(cadena) {
     span.id = "spanid_" + i;
     //  span.textContent = cadena[i]; // Asignar la letra al contenido del span
     span.style.margin = "5px"; // Separación entre letras
-    span.style.padding = "25px"; // Opcional: Añadir padding
+    span.style.width = "50px"; 
+    span.style.height = "50px";
+    span.style.textAlign = "center"; // Centrar texto
+    span.style.lineHeight = "50px"; // Centrar verticalmente
     span.style.border = "1px solid black"; // Opcional: Borde para destacar
     span.style.display = "inline-block"; // Para que sean bloques en línea
     span.style.backgroundColor = "#f0f0f0"; // Opcional: Fondo claro

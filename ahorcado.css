@@ -30,8 +30,16 @@ img {
   margin: auto;
 }
 
+.palabra {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 50px;
+}
+
 .teclado {
   position: relative;
+  margin-top: 50px;
 }
 
 .primeraFila {

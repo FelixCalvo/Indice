@@ -39,28 +39,28 @@ img {
 .primeraFila {
   display: flex;
   /* background-color: lightcoral; */
-  gap: 7px;
+  gap: 16px;
   position: absolute;
-  margin-left: 118px;
-  margin-top: 74px;
+  margin-left: 112px;
+  margin-top: 179px;
 }
 
 .segundaFila {
   display: flex;
   /* background-color: lightcoral; */
-  gap: 7px;
+  gap: 16px;
   position: absolute;
-  margin-left: 126px;
-  margin-top: 105px;
+  margin-left: 128px;
+  margin-top: 220px;
 }
 
 .terceraFila {
   display: flex;
   /* background-color: lightcoral; */
-  gap: 7px;
+  gap: 16px;
   position: absolute;
-  margin-left: 143px;
-  margin-top: 136px;
+  margin-left: 147px;
+  margin-top: 260px;
 }
 
 .teclas {

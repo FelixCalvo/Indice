@@ -1,12 +1,13 @@
 const nombres = ['Terremoto', 'Motocicleta', 'Edificio', 'Camiseta', 'Cerveza', 'Cocodrilo'];
 
+let palabraAdivinar = nombres[Math.floor(Math.random() * nombres.length)];
 
-// // Asocia el evento onclick a cada div
-// document.querySelectorAll('.teclas').forEach(tecla => {
-//   tecla.onclick = extraerNumeroClase();
-// });
+console.log(palabraAdivinar);
 
+document.querySelectorAll('.teclas').forEach(tecla => {
+  tecla.onclick = function() {
+    const letra = tecla.id.slice(-1);
+    console.log(letra); 
 
-// console.log(nombres);
-
-// Función que se ejecuta al hacer click en una tecla
+  };
+});

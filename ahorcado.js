@@ -14,14 +14,37 @@ const nombres = [
   'SERPIENTE', 
   'DELFIN', 
   'CANGURO', 
-  'PINGÜINO', 
+  'PATO', 
   'RINOCERONTE'
 ];
 
 let palabraAdivinar = nombres[Math.floor(Math.random() * nombres.length)];
 let fotoAhorcado = 0;
+let gameOver = palabraAdivinar.length;
 
 console.log(palabraAdivinar);
+
+function generarSpansPorLetras(cadena) {
+  const container = document.querySelector(".palabra"); // Contenedor donde se añadirán los <span>
+  // container.innerHTML = ""; // Limpiar contenido previo
+
+  for (let i = 0; i < cadena.length; i++) {
+    const span = document.createElement("span");
+    span.className = "spanclassname_" + palabraAdivinar[i];//ponemos letra en la clase span para que sea igual a la letra a buscar para poder cambiarlas a la vez spanclassname__A
+    //  span.textContent = cadena[i]; // Asignar la letra al contenido del span
+    span.style.margin = "5px"; // Separación entre letras
+    span.style.width = "50px"; 
+    span.style.height = "50px";
+    span.style.textAlign = "center"; // Centrar texto
+    span.style.lineHeight = "50px"; // Centrar verticalmente
+    span.style.border = "1px solid black"; // Opcional: Borde para destacar
+    span.style.backgroundColor = "#f0f0f0"; // Opcional: Fondo claro
+    container.appendChild(span); // Añadir el span al contenedor
+  }
+}
+
+
+generarSpansPorLetras(palabraAdivinar);
 
 document.querySelectorAll('.teclas').forEach(tecla => {
   tecla.onclick = function() {
@@ -30,8 +53,19 @@ document.querySelectorAll('.teclas').forEach(tecla => {
     // Comprobar si la letra está en la palabra a adivinar
     if (palabraAdivinar.includes(letra)) {
       console.log("La letra está en la palabra");
-      const span = document.querySelector("#spanid_" + palabraAdivinar.indexOf(letra));
-      span.textContent = letra; // Asignar la letra al contenido del span
+      const spans = document.querySelectorAll(".spanclassname_" + letra);
+      const boton = document.querySelector("#tecla_" + letra);
+      boton.onclick = null;
+      spans.forEach(span => {//guardamos la letra en todos los span que tengan la clase igual a la letra a buscar
+        span.textContent = letra; // Asigna la letra al contenido de cada span
+        gameOver --;
+        if(gameOver === 0){
+          setTimeout(() => {
+            alert('Has ganado');
+            location.reload();
+          }, 300);
+        }
+    });   
     } else {
       fotoAhorcado++;
       document.querySelector('.ahorcado').src = `img/ahorcado_${fotoAhorcado}.jpg`;
@@ -39,52 +73,7 @@ document.querySelectorAll('.teclas').forEach(tecla => {
         alert('Has perdido');
         location.reload();
       }
-    }
-    
-    //  
+    }  
   };
 });
 
-// const texto = "programacion"; guardar en aray todas las coincidencias de una letra
-// const letra = "o";
-
-// let posiciones = [];
-// let posicion = texto.indexOf(letra);
-
-// while (posicion !== -1) {
-//   posiciones.push(posicion);
-//   posicion = texto.indexOf(letra, posicion + 1);
-// }
-
-// console.log(`La letra "${letra}" aparece en las posiciones: ${posiciones}`);
-
-
-
-// nombre.indexOf("a")); // 1 Si la letra no estuviese presente, devolvería -1
-
-// const eliminarLetra = (str, posicion) => str.slice(0, posicion) + str.slice(posicion + 1);
-
-// console.log(eliminarLetra("Hola Mundo", 4)); // "HolaMundo"
-
-function generarSpansPorLetras(cadena) {
-  const container = document.querySelector(".palabra"); // Contenedor donde se añadirán los <span>
-  // container.innerHTML = ""; // Limpiar contenido previo
-
-  for (let i = 0; i < cadena.length; i++) {
-    const span = document.createElement("span");
-    span.id = "spanid_" + i;
-    //  span.textContent = cadena[i]; // Asignar la letra al contenido del span
-    span.style.margin = "5px"; // Separación entre letras
-    span.style.width = "50px"; 
-    span.style.height = "50px";
-    span.style.textAlign = "center"; // Centrar texto
-    span.style.lineHeight = "50px"; // Centrar verticalmente
-    span.style.border = "1px solid black"; // Opcional: Borde para destacar
-    span.style.display = "inline-block"; // Para que sean bloques en línea
-    span.style.backgroundColor = "#f0f0f0"; // Opcional: Fondo claro
-    container.appendChild(span); // Añadir el span al contenedor
-  }
-}
-
-
-generarSpansPorLetras(palabraAdivinar);

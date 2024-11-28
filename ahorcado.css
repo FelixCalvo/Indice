@@ -72,6 +72,6 @@ img {
 .teclas {
   width: 25px;
   height: 25px;
-  background-color: lightslategray;
+  background-color: rgba(0, 0, 0, 0);
   border-radius: 5%;
 }

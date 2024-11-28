@@ -54,8 +54,8 @@ document.querySelectorAll('.teclas').forEach(tecla => {
     if (palabraAdivinar.includes(letra)) {
       console.log("La letra está en la palabra");
       const spans = document.querySelectorAll(".spanclassname_" + letra);
-      const boton = document.querySelector("#tecla_" + letra);
-      boton.onclick = null;
+      const div = document.querySelector("#tecla_" + letra);
+      div.onclick = null;
       spans.forEach(span => {//guardamos la letra en todos los span que tengan la clase igual a la letra a buscar
         span.textContent = letra; // Asigna la letra al contenido de cada span
         gameOver --;
@@ -70,8 +70,11 @@ document.querySelectorAll('.teclas').forEach(tecla => {
       fotoAhorcado++;
       document.querySelector('.ahorcado').src = `img/ahorcado_${fotoAhorcado}.jpg`;
       if(fotoAhorcado === 6){
-        alert('Has perdido');
-        location.reload();
+        setTimeout(() => {
+            alert('Has perdido');
+            location.reload();
+          }, 300);
+        
       }
     }  
   };
